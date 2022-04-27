@@ -76,10 +76,10 @@ public class Nematode {
         float y = viz.height / 4;
         float x = viz.width / 2;
         viz.text(name, x-10, y - 100);
-        viz.stroke(255);
         viz.noFill();
         for (int i = 0; i < length; i++)
         {
+            
             y2 = y + (i*40);
             viz.circle(x, y2, 40);
             if (limbs > 0)
@@ -89,6 +89,8 @@ public class Nematode {
             }
 
         }
+        float c = viz.map(y, 0, y2, 0, 255);
+        viz.stroke(c, 255, 255);
         if ( eyes > 0)
         {
             viz.line(x-15, y-15, x-30, y-30);
