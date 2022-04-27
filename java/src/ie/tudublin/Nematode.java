@@ -91,9 +91,27 @@ public class Nematode {
         }
         if ( eyes > 0)
         {
+            viz.line(x-15, y-15, x-30, y-30);
+            viz.line(x+15, y-15, x+30, y-30);
+            viz.circle(x-32, y-32, 5);
+            viz.circle(x+32, y-32, 5);
+        }
+        if (gender.contains("m"))
+        {
             viz.line(x, y2+20, x, y2+40);
             viz.circle(x, y2+44, 5);
         }
+        if (gender.contains("h"))
+        {
+            viz.line(x, y2+20, x, y2+40);
+            viz.circle(x, y2+44, 5);
+            viz.circle(x, y2, 28);
+        }
+        if (gender.contains("f"))
+        {
+            viz.circle(x, y2, 28);
+        }
+        
         viz.popMatrix();
     }
 
