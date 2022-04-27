@@ -68,7 +68,15 @@ public class Nematode {
         this.eyes = eyes;
     }
 
-    
+    public void render(float x, float y, NematodeVisualiser viz)
+    {
+        viz.pushMatrix();
+
+        viz.stroke(255);
+        viz.noFill();
+        viz.circle(x, y, length);
+        viz.popMatrix();
+    }
 
     
 }

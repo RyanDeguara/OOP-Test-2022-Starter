@@ -31,6 +31,7 @@ public class NematodeVisualiser extends PApplet
 		smooth();		
 		loadNematodes();		
 		printNematodes();
+
 	}
 	
 
@@ -53,7 +54,13 @@ public class NematodeVisualiser extends PApplet
     }
 
 
+
 	public void draw()
 	{	
+		for(int i = 0 ; i < nematodes.size() ; i ++)
+		{
+			float y = map(i, 0, nematodes.size(), 100, height - 100);
+			nematodes.get(i).render(width / 2, y, this);
+		}
 	}
 }
