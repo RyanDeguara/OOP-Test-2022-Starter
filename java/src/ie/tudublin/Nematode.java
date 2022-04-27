@@ -75,7 +75,11 @@ public class Nematode {
         
         float y = viz.height / 4;
         float x = viz.width / 2;
-        viz.text(name, x-10, y - 100);
+        float c = viz.map(y, 0, y2, 0, 255);
+        viz.stroke(c, 255, 255);
+        viz.fill(c, 255, 255);
+        viz.text(name, x-(name.length()), y - 100);
+        
         viz.noFill();
         for (int i = 0; i < length; i++)
         {
@@ -89,8 +93,6 @@ public class Nematode {
             }
 
         }
-        float c = viz.map(y, 0, y2, 0, 255);
-        viz.stroke(c, 255, 255);
         if ( eyes > 0)
         {
             viz.line(x-15, y-15, x-30, y-30);
