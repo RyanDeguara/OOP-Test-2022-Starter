@@ -30,6 +30,7 @@ public class NematodeVisualiser extends PApplet
 		background(0);
 		smooth();		
 		loadNematodes();		
+		printNematodes();
 	}
 	
 
@@ -42,6 +43,14 @@ public class NematodeVisualiser extends PApplet
             nematodes.add(s);
         }
 	}
+
+	void printNematodes()
+    {
+        for(Nematode s:nematodes)
+        {
+            System.out.println(s);
+        }
+    }
 
 
 	public void draw()
