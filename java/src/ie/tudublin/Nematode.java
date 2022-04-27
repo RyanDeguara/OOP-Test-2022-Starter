@@ -71,14 +71,15 @@ public class Nematode {
     public void render( NematodeVisualiser viz)
     {
         viz.pushMatrix();
-        float y = viz.height / 2;
+        
+        float y = viz.height / 4;
         float x = viz.width / 2;
-
+        viz.text(name, x-10, y - 100);
         viz.stroke(255);
         viz.noFill();
         for (int i = 0; i < length; i++)
         {
-            viz.circle(x, y+(i*10), 5);
+            viz.circle(x, y+(i*40), 40);
         }
         viz.popMatrix();
     }
