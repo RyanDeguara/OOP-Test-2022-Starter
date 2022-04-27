@@ -8,6 +8,8 @@ import processing.data.TableRow;
 
 public class NematodeVisualiser extends PApplet
 {
+	// create array list of namatodes
+    ArrayList<Nematode> nematodes = new ArrayList<Nematode>();
 
 	public void keyPressed()
 	{		
@@ -32,6 +34,7 @@ public class NematodeVisualiser extends PApplet
 
 	public void loadNematodes()
 	{
+		
 	}
 
 
