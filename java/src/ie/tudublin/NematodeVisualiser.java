@@ -10,12 +10,30 @@ public class NematodeVisualiser extends PApplet
 {
 	// create array list of namatodes
     ArrayList<Nematode> nematodes = new ArrayList<Nematode>();
+	int curNem;
 
 	public void keyPressed()
 	{		
-		if (keyCode == LEFT)
+		if(keyCode == LEFT)
 		{
-		}		
+			curNem = curNem - 1;
+			if( curNem < 0 )
+			{
+				curNem = nematodes.size() -1;
+			}
+		}	
+		else if (keyCode == RIGHT)
+		{
+			curNem = curNem + 1;
+			if( curNem > nematodes.size()-1 )
+			{
+				curNem = 0;
+			}
+		}
+		else
+		{
+			System.out.println("Please enter a valid key (LEFT OR RIGHT KEY ARROW)");
+		}
 	}
 
 
@@ -57,10 +75,9 @@ public class NematodeVisualiser extends PApplet
 
 	public void draw()
 	{	
-		for(int i = 0 ; i < nematodes.size() ; i ++)
-		{
-			float y = map(i, 0, nematodes.size(), 100, height - 100);
-			nematodes.get(i).render(width / 2, y, this);
-		}
+
+		background(0);
+		nematodes.get(curNem).render(this);
+		
 	}
 }
