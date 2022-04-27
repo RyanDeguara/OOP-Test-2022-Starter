@@ -78,7 +78,9 @@ public class Nematode {
         float c = viz.map(y, 0, y2, 0, 255);
         viz.stroke(c, 255, 255);
         viz.fill(c, 255, 255);
-        viz.text(name, x-(name.length()), y - 100);
+        viz.textSize(40);
+        viz.textAlign(viz.CENTER);
+        viz.text(name, x, y-100);
         
         viz.noFill();
         for (int i = 0; i < length; i++)
