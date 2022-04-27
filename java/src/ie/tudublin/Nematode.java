@@ -74,7 +74,10 @@ public class Nematode {
 
         viz.stroke(255);
         viz.noFill();
-        viz.circle(x, y, length);
+        for (int i = 0; i < length; i++)
+        {
+            viz.circle(x, y+(i*10), 5);
+        }
         viz.popMatrix();
     }
 
