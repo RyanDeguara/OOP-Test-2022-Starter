@@ -8,6 +8,7 @@ public class Nematode {
     public Integer limbs;
     public String gender;
     public Integer eyes;
+    private float y2;
 
     public Nematode(String name, Integer length, Integer limbs, String gender, Integer eyes) {
         this.name = name;
@@ -79,7 +80,19 @@ public class Nematode {
         viz.noFill();
         for (int i = 0; i < length; i++)
         {
-            viz.circle(x, y+(i*40), 40);
+            y2 = y + (i*40);
+            viz.circle(x, y2, 40);
+            if (limbs > 0)
+            {
+                viz.line(x+40, y2, x+20, y2);
+                viz.line(x-40, y2, x-20, y2);
+            }
+
+        }
+        if ( eyes > 0)
+        {
+            viz.line(x, y2+20, x, y2+40);
+            viz.circle(x, y2+44, 5);
         }
         viz.popMatrix();
     }
