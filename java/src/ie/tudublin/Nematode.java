@@ -3,12 +3,14 @@ package ie.tudublin;
 import processing.data.TableRow;
 
 public class Nematode {
-    public String name;
-    public Integer length;
-    public Integer limbs;
-    public String gender;
-    public Integer eyes;
+    private String name;
+    private Integer length;
+    private Integer limbs;
+    private String gender;
+    private Integer eyes;
     private float y2;
+    private float extent;
+    private float extent2;
 
     public Nematode(String name, Integer length, Integer limbs, String gender, Integer eyes) {
         this.name = name;
@@ -84,41 +86,43 @@ public class Nematode {
         viz.rectMode(viz.CENTER);
         viz.noFill();
         viz.rect(x, y-110, (x/2)+(name.length()*10), y-150, 20);
+        extent = 40;
+        extent2 = 30;
 
         
         for (int i = 0; i < length; i++)
         {
             
-            y2 = y + (i*40);
-            viz.circle(x, y2, 40);
+            y2 = y + (i*extent);
+            viz.circle(x, y2, extent);
             if (limbs > 0)
             {
-                viz.line(x+40, y2, x+20, y2);
-                viz.line(x-40, y2, x-20, y2);
+                viz.line(x+extent, y2, x+(extent/2), y2);
+                viz.line(x-extent, y2, x-(extent/2), y2);
             }
 
         }
         if ( eyes > 0)
         {
-            viz.line(x-15, y-15, x-30, y-30);
-            viz.line(x+15, y-15, x+30, y-30);
-            viz.circle(x-32, y-32, 5);
-            viz.circle(x+32, y-32, 5);
+            viz.line(x-(extent2/2), y-(extent2/2), x-extent2, y-extent2);
+            viz.line(x+(extent2/2), y-(extent2/2), x+extent2, y-extent2);
+            viz.circle(x-(extent2+2), y-(extent2+2), 5);
+            viz.circle(x+(extent2+2), y-(extent2+2), 5);
         }
         if (gender.contains("m"))
         {
-            viz.line(x, y2+20, x, y2+40);
-            viz.circle(x, y2+44, 5);
+            viz.line(x, y2+(extent/2), x, y2+extent);
+            viz.circle(x, y2+(extent + 4), 5);
         }
         if (gender.contains("h"))
         {
-            viz.line(x, y2+20, x, y2+40);
-            viz.circle(x, y2+44, 5);
-            viz.circle(x, y2, 28);
+            viz.line(x, y2+(extent/2), x, y2+extent);
+            viz.circle(x, y2+(extent+4), 5);
+            viz.circle(x, y2, ((extent/2)+8));
         }
         if (gender.contains("f"))
         {
-            viz.circle(x, y2, 28);
+            viz.circle(x, y2, ((extent/2)+8));
         }
         
         viz.popMatrix();
